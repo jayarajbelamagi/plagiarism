@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjective Question Answer Check & Plagiarism Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 30px;
+            background-color: #f8f9fa;
+        }
+        h2 {
+            color: #333;
+        }
+        textarea {
+            width: 80%;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Subjective Question Answer Check & Plagiarism Checker</h2>
+
+    <!-- Displaying the question -->
+    <p><strong>Question:</strong> {{ question }}</p>
+
+    <!-- Form for Submitting Answer -->
+    <form method="POST" action="/">
+        <textarea name="text" placeholder="Write your answer here..." required></textarea><br>
+        <button type="submit">Submit Answer</button>
+    </form>
+
+    <!-- Display Error Message -->
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <!-- Display Results -->
+    {% if result %}
+        <div class="results">
+            <h3>Results:</h3>
+            <p>{{ result }}</p>
+            <p><strong>Your Answer:</strong></p>
+            <p>{{ answer }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
